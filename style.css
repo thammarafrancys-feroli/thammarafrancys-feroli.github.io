@@ -8,8 +8,12 @@
     --secondary: #6b7280;
     --border: #e5e7eb;
     --radius: 24px;
-    --shadow: 0 20px 50px rgba(11, 31, 77, 0.10);
+    --shadow: 0 20px 50px rgba(11, 31, 77, 0.1);
 }
+
+/* ========================================
+   CONFIGURAÇÕES GERAIS
+======================================== */
 
 * {
     box-sizing: border-box;
@@ -28,6 +32,16 @@ body {
     background: var(--white);
 }
 
+main {
+    display: block;
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
 a {
     color: inherit;
 }
@@ -35,6 +49,10 @@ a {
 p {
     line-height: 1.7;
 }
+
+/* ========================================
+   MENU SUPERIOR
+======================================== */
 
 .header {
     position: sticky;
@@ -69,11 +87,16 @@ p {
     font-size: 14px;
     font-weight: 700;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .navigation a:hover {
     color: var(--pink);
 }
+
+/* ========================================
+   CAPA
+======================================== */
 
 .hero {
     width: min(1180px, 88%);
@@ -91,7 +114,7 @@ p {
     color: var(--pink);
     font-size: 13px;
     font-weight: 800;
-    letter-spacing: 0.10em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -117,6 +140,10 @@ p {
     margin-top: 32px;
 }
 
+/* ========================================
+   BOTÕES
+======================================== */
+
 .button {
     min-height: 52px;
     display: inline-flex;
@@ -126,7 +153,9 @@ p {
     border-radius: 999px;
     font-weight: 800;
     text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
 }
 
 .button:hover {
@@ -143,6 +172,10 @@ p {
     background: transparent;
     border: 2px solid var(--navy);
 }
+
+/* ========================================
+   CARDS DA CAPA
+======================================== */
 
 .hero-visual {
     display: grid;
@@ -179,6 +212,10 @@ p {
     color: var(--secondary);
 }
 
+/* ========================================
+   SEÇÕES
+======================================== */
+
 .section {
     width: min(1180px, 88%);
     margin: 0 auto;
@@ -209,6 +246,10 @@ p {
     color: var(--secondary);
 }
 
+/* ========================================
+   SOBRE MIM
+======================================== */
+
 .about-content {
     max-width: 900px;
     display: grid;
@@ -221,6 +262,10 @@ p {
     font-size: 18px;
 }
 
+/* ========================================
+   ÁREAS DE ATUAÇÃO
+======================================== */
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -232,6 +277,14 @@ p {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--white);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
 }
 
 .service-card h3 {
@@ -244,6 +297,10 @@ p {
     margin: 0;
     color: var(--secondary);
 }
+
+/* ========================================
+   ESPAÇO TEMPORÁRIO DOS PROJETOS
+======================================== */
 
 .project-placeholder {
     min-height: 360px;
@@ -273,6 +330,176 @@ p {
     color: var(--secondary);
 }
 
+/* ========================================
+   PROJETOS E GALERIAS
+======================================== */
+
+.projects-grid {
+    display: grid;
+    gap: 48px;
+}
+
+.portfolio-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 42px;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.portfolio-card:nth-child(even) .portfolio-media {
+    order: 2;
+}
+
+.portfolio-card:nth-child(even) .portfolio-content {
+    order: 1;
+}
+
+.portfolio-media {
+    display: block;
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--light);
+}
+
+.portfolio-media img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-media:hover img {
+    transform: scale(1.02);
+}
+
+.portfolio-media.contain img {
+    object-fit: contain;
+}
+
+.portfolio-content h3 {
+    margin: 0 0 16px;
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+}
+
+.portfolio-content > p:not(.project-category) {
+    margin: 0 0 18px;
+    color: var(--secondary);
+}
+
+.portfolio-content h4 {
+    margin: 22px 0 6px;
+    color: var(--navy);
+}
+
+.project-category {
+    margin: 0 0 12px;
+    color: var(--pink);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   ETIQUETAS DOS PROJETOS
+======================================== */
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.project-tags span {
+    padding: 8px 12px;
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--light);
+    border-radius: 999px;
+}
+
+/* ========================================
+   MINIATURAS E GALERIAS
+======================================== */
+
+.portfolio-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.portfolio-gallery.four-items {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.portfolio-gallery a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--light);
+}
+
+.portfolio-gallery img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.portfolio-gallery a:hover img {
+    transform: scale(1.04);
+}
+
+/* ========================================
+   PROJETO DE VÍDEO
+======================================== */
+
+.video-project {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 42px;
+    align-items: center;
+}
+
+.video-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--navy);
+    box-shadow: var(--shadow);
+}
+
+.video-wrapper video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+}
+
+.video-content h3 {
+    margin: 0 0 16px;
+    color: var(--navy);
+    font-size: clamp(28px, 4vw, 40px);
+}
+
+.video-content p:not(.project-category) {
+    color: var(--secondary);
+}
+
+/* ========================================
+   EXPERIÊNCIA
+======================================== */
+
 .experience-card {
     max-width: 850px;
     padding: 36px;
@@ -293,6 +520,10 @@ p {
     font-size: 18px;
 }
 
+/* ========================================
+   CONTATO
+======================================== */
+
 .contact-section {
     width: min(1180px, 88%);
     margin: 0 auto;
@@ -311,6 +542,10 @@ p {
     justify-content: center;
 }
 
+/* ========================================
+   RODAPÉ
+======================================== */
+
 .footer {
     padding: 36px 6%;
     text-align: center;
@@ -327,6 +562,10 @@ p {
 .footer span {
     font-size: 14px;
 }
+
+/* ========================================
+   TABLETS E TELAS MENORES
+======================================== */
 
 @media (max-width: 900px) {
     .header {
@@ -359,11 +598,41 @@ p {
     .services-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .portfolio-card {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card:nth-child(even) .portfolio-media,
+    .portfolio-card:nth-child(even) .portfolio-content {
+        order: initial;
+    }
+
+    .portfolio-gallery.four-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .video-project {
+        grid-template-columns: 1fr;
+    }
 }
 
+/* ========================================
+   CELULARES
+======================================== */
+
 @media (max-width: 600px) {
+    .header {
+        align-items: flex-start;
+    }
+
     .navigation {
         display: none;
+    }
+
+    .hero {
+        width: min(100% - 36px, 1180px);
+        padding: 60px 0;
     }
 
     .hero h1 {
@@ -390,6 +659,16 @@ p {
         padding-bottom: 75px;
     }
 
+    .section {
+        width: min(100% - 36px, 1180px);
+    }
+
+    .light-section {
+        width: 100%;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -401,5 +680,27 @@ p {
 
     .project-placeholder h3 {
         font-size: 26px;
+    }
+
+    .portfolio-card {
+        gap: 26px;
+        padding: 18px;
+    }
+
+    .portfolio-content h3 {
+        font-size: 28px;
+    }
+
+    .portfolio-gallery,
+    .portfolio-gallery.four-items {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .experience-card {
+        padding: 26px;
+    }
+
+    .experience-card h3 {
+        font-size: 25px;
     }
 }
